@@ -5,10 +5,20 @@
     <link rel="stylesheet" href="src/styles.css" />
     <script src="src/app.js" type="module" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assignment 4</title>
+    <title>Creature Feature</title>
   </head>
   <body>
-    <!-- TODO: an element to allow users to input data (form) -->
+    <section id="home">
+      <div id="textBox">
+        <h1>Creature Feature</h1>
+        <h2>What will you discover today?</h2>
+      </div>
+    </section>
+    <div id="postCreated" hidden>
+      <h3>Your post has been made!</h3>
+      <a href="feed">See your post</a>
+      <a href="createPost-form" id="createAnother">New post</a>
+    </div>
     <form id="createPost-form">
       <label for="name">Name: </label>
       <input type="text" name="name" placeholder="name/alias" />
@@ -61,5 +71,14 @@
       <button type="submit">Post</button>
     </form>
     <section id="feed"></section>
+
+    <!-- TODO: import img from ipad -->
+    <nav>
+      <a href="#home" id="logo" aria-label="Home"
+        >Logo goes here<img src=""
+      /></a>
+      <a href="createPost-form">Create a post</a>
+      <a href="feed">Feed</a>
+    </nav>
   </body>
 </html>
