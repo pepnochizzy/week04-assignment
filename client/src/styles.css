@@ -5,3 +5,7 @@
 }
 
 /* responsive design- mobile first? media queries, accesibility  */
+body {
+  background-color: black;
+  color: peru;
+}

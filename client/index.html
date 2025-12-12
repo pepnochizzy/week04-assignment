@@ -9,5 +9,56 @@
   </head>
   <body>
     <!-- TODO: an element to allow users to input data (form) -->
+    <form id="createPost-form">
+      <label for="name">Name: </label>
+      <input type="text" name="name" placeholder="name/alias" />
+
+      <label for="location">Location: </label>
+      <input
+        type="text"
+        name="location"
+        required
+        placeholder="county or more specific"
+      />
+
+      <label for="date">Date: </label>
+      <input type="date" name="date" min="2024-12" id="datePickerId" required />
+
+      <label for="animal">Type: </label>
+      <select name="animal" required>
+        <option value="" selected disabled>Please select a type</option>
+        <option value="mammal">Mammal</option>
+        <option value="bird">Bird</option>
+        <option value="reptile">Reptile</option>
+        <option value="amphibian">Amphibian</option>
+        <option value="fish">Fish</option>
+        <option value="insect">Insect</option>
+        <option value="mollusk">Mollusk</option>
+        <option value="crustacean">Crustacean</option>
+        <option value="arachnid">Arachnid</option>
+        <option value="worm">Worm</option>
+        <option value="jellyfish">Jellyfish</option>
+        <option value="unknown">Unknown</option>
+      </select>
+
+      <label for="species">Species: </label>
+      <input
+        type="text"
+        name="species"
+        placeholder="If unknown, add description"
+        id="species"
+      />
+
+      <label for="info">Description: </label>
+      <textarea
+        type="text"
+        name="info"
+        placeholder="features, behaviour, time etc"
+        maxlength="1500"
+        id="description"
+      ></textarea>
+
+      <button type="submit">Post</button>
+    </form>
   </body>
 </html>
