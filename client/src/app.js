@@ -45,9 +45,34 @@ form.addEventListener("submit", handleSubmit);
 //TODO: render the users' data on the interface
 //fetch the GET route from the server
 async function getPostData() {
-  const response = await fetch("http://localhost:8080/create-post");
-  const postData = response.json();
-  console.log(postData);
+  const response = await fetch("http://localhost:8080/get-post");
+  const postData = await response.json();
+  console.log(postData); //TODO: Remove once completed project
+  renderPost(postData);
+}
+getPostData();
+
+//I am making lots of p tags and it felt repetitive:
+function createPtag(text, i) {
+  const p = document.createElement("p");
+  p.textContent = text;
+  p.className = i;
+  return p;
 }
 
 // render the data using the DOM elements (one per piece of data)
+async function renderPost(postData) {
+  for (let i = 0; i < postData.length; i++) {
+    const nameP = createPtag(postData[i].name, "name");
+    const locationP = createPtag(postData[i].location, "location");
+    const date = postData[i].date.split("T")[0]; //before this, it was showing the time as well so I split it at the T- remembered from the max date on line 4.
+    const dateP = createPtag(date, "date");
+    const typeP = createPtag(postData[i].type, "type");
+    const speciesP = createPtag(postData[i].species, "species");
+    const infoP = createPtag(postData[i].info, "info");
+    const feed = document.getElementById("feed");
+    const postContainer = document.createElement("div");
+    feed.appendChild(postContainer);
+    postContainer.append(nameP, locationP, date, typeP, speciesP, infoP);
+  }
+}

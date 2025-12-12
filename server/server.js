@@ -28,7 +28,7 @@ app.post("/create-post", (req, res) => {
       newPost.name,
       newPost.location,
       newPost.date,
-      newPost.animal,
+      newPost.type,
       newPost.species,
       newPost.info,
     ]
@@ -36,10 +36,10 @@ app.post("/create-post", (req, res) => {
   res.json({ status: "success!", values: newPost });
 });
 
-app.get("/create-post", async (req, res) => {
+app.get("/get-post", async (req, res) => {
   const query = await db.query(
     `SELECT name, location, date, type, species, info FROM posts`
   );
+  // console.log(query.rows);
   res.json(query.rows);
-  console.log(res.json(query.rows));
 });
