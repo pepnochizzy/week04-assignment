@@ -48,3 +48,4 @@ but it started to feel like it would be very repetitive, making p elements and d
 # Resources
 
 - https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today - used for setting max date in form.
+- https://www.youtube.com/watch?v=wARbgs5Fmuw - used for learning more about responsive typography
