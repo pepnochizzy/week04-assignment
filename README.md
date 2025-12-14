@@ -57,3 +57,6 @@ but it started to feel like it would be very repetitive, making p elements and d
 - https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today - used for setting max date in form.
 - https://www.youtube.com/watch?v=wARbgs5Fmuw - used for learning more about responsive typography
 - https://www.w3schools.com/howto/howto_js_toggle_like.asp -used for swapping BACK to unliked heart.
+- ![alt text](client/public/img/wireframe1.png)
+- ![alt text](client/public/img/wireframe2.png)
+- ![alt text](client/public/img/wireframe3.png)

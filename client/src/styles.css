@@ -75,6 +75,11 @@ nav {
   z-index: 100;
 }
 
+img {
+  height: 5vh;
+  width: auto;
+}
+
 /* I want the nav to show on the bottom for mobile users as this is the most comfortable place to click- thinking about instagram and the likes have their nav on the bottom */
 @media (min-width: 800px) {
   nav {
