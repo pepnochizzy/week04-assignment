@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -16,7 +17,7 @@
     --fs-xl: clamp(4rem, 5vw + 1rem, 6rem);
     --fs-600: 2rem;
     --fs-500: 1.4rem;
-    --fs-400: 0.8rem;
+    --fs-400: 1rem;
   }
 }
 /* responsive design- mobile first? media queries, accesibility  */
@@ -100,22 +101,26 @@ a:hover {
 }
 
 #create-post {
+  min-height: fit-content;
+  /* min-width: fit-content; */
   height: 60vh;
   display: flex;
-  justify-self: center;
+  flex-direction: column;
   background-color: rgba(38, 64, 39, 0.2);
   width: 80%;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: stretch;
+  align-self: center;
   border: solid 1px rgb(38, 64, 39);
   border-radius: 12px;
-  margin-bottom: 10vh;
+  margin: 10vh auto 10vh auto;
 }
 
 #createPost-form {
-  width: 80%;
+  width: 100%;
   position: relative;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 #post-title {
@@ -126,13 +131,39 @@ a:hover {
 
 #form-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
   gap: 1rem;
   padding-top: 1rem;
+  width: 100%;
+  align-items: center;
 }
 
-#info {
-  grid-column: span 3;
+#form-grid > div {
+  justify-content: center;
+  height: 100%;
+}
+
+@media (max-width: 799px) {
+  #form-grid > div {
+    grid-column: auto;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 800px) {
+  #form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+}
+@media (min-width: 800px) {
+  #info {
+    grid-column: span 3;
+  }
 }
 
 input,
@@ -145,11 +176,12 @@ button {
   border-radius: 12px;
   color: rgb(179, 138, 88);
   border: solid 2px rgb(111, 115, 47);
+  font-size: var(--fs-400);
 }
 
 textarea {
   height: 5rem;
-  max-width: 20rem;
+  max-width: 30rem;
 }
 
 #info label {
@@ -158,19 +190,34 @@ textarea {
 
 ::placeholder {
   color: rgb(179, 138, 88);
-  padding-left: 1rem;
+  padding-left: 0.2rem;
+  font-family: "Inter", sans-serif;
+  font-size: var(--fs-400);
+}
+
+@media (min-width: 800px) {
+  ::placeholder {
+    color: rgb(179, 138, 88);
+    padding-left: 1rem;
+  }
 }
 
 label {
   font-size: var(--fs-500);
   color: rgb(179, 138, 88);
   font-weight: bold;
+  padding-left: 1%;
 }
 
+@media (min-width: 800px) {
+  button {
+    width: 10rem;
+    grid-column: 3/4;
+    justify-self: end;
+  }
+}
 button {
-  width: 40%;
-  grid-column: 3/4;
-  justify-self: end;
+  width: 10rem;
   font-size: var(--fs-500);
   font-weight: bold;
   transition: 0.3s ease-in-out;
@@ -187,9 +234,25 @@ button:hover {
   }
 }
 
+#speciesDiv {
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  #speciesDiv {
+    grid-column: 2/ -1;
+  }
+}
+
 select,
 ::picker(select) {
   appearance: base-select;
+  padding-top: 0.5rem;
+  padding-left: 0.2rem;
+  font-family: "Inter", sans-serif;
+  color: rgb(179, 138, 88);
+  background-color: rgb(38, 64, 39);
+  border-radius: 12px;
 }
 
 select::picker-icon {
@@ -201,24 +264,66 @@ select:open::picker-icon {
   rotate: 180deg;
 }
 
+/* styling the dom posts */
+
 #feed {
   display: grid;
-  grid-template-columns: 30vw 30vw;
+  grid-template-columns: 80vw;
   grid-row: auto;
   gap: 5rem;
   justify-content: center;
+  padding-top: 10vh;
+  padding-bottom: 5%;
 }
 
 .posts {
-  background-color: rgba(179, 138, 88, 0.4);
+  background-color: rgba(38, 64, 39, 0.4);
   border-radius: 12px;
   padding: 1rem;
   color: rgb(179, 138, 88);
-  font-size: var(--fs-500);
+  border: solid 1px rgb(38, 64, 39);
+  min-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
 }
 
 @media (min-width: 800px) {
   #feed {
     grid-template-columns: 25vw 25vw 25vw;
   }
+  .posts:hover {
+    box-shadow: 0 0 10px rgb(179, 138, 88), 0 0 25px rgba(179, 138, 88, 0.6);
+  }
+}
+
+.name {
+  font-size: var(--fs-500);
+  font-weight: bold;
+  margin-bottom: 2%;
+}
+
+.location,
+.date,
+.type,
+.species,
+.info {
+  font-size: var(--fs-400);
+  padding-bottom: 0.5rem;
+}
+
+.type,
+.species {
+  font-weight: bold;
+}
+
+.locationDiv {
+  display: flex;
+  justify-content: space-between;
+  border-block-end: 1px solid rgb(179, 138, 88);
+  margin-bottom: 5%;
+}
+
+#heart {
+  align-self: flex-end;
 }

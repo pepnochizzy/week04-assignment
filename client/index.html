@@ -12,103 +12,114 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/12cfebba75.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- TODO: import img from ipad -->
-    <nav>
-      <a href="#" id="logo" aria-label="Home">Logo goes here<img src="" /></a>
+    <nav role="navigation">
+      <a href="#" id="logo" aria-label="Home"
+        >Logo goes here<img src="" alt="logo"
+      /></a>
       <a href="#create-post">Create a post</a>
       <a href="#feed">Feed</a>
     </nav>
-    <section id="home">
-      <div id="textBox">
-        <h1>Creature Feature</h1>
-        <h2>What will you discover today?</h2>
-      </div>
-    </section>
-
-    <section id="create-post">
-      <form id="createPost-form">
-        <h2 id="post-title">Create post</h2>
-        <div id="form-grid">
-          <div>
-            <label for="name" class="name">Name: </label>
-            <input
-              type="text"
-              name="name"
-              class="name"
-              placeholder="name/alias"
-            />
-          </div>
-          <div>
-            <label for="location" class="location">Location: </label>
-            <input
-              type="text"
-              name="location"
-              required
-              placeholder="county or more specific"
-              class="location"
-            />
-          </div>
-          <div>
-            <label for="date" class="date">Date: </label>
-            <input
-              type="date"
-              class="date"
-              name="date"
-              min="2024-12"
-              id="datePickerId"
-              required
-            />
-          </div>
-          <div>
-            <label for="type">Type: </label>
-            <select name="type" required>
-              <option value="" selected disabled>Please select a type</option>
-              <option value="mammal">Mammal</option>
-              <option value="bird">Bird</option>
-              <option value="reptile">Reptile</option>
-              <option value="amphibian">Amphibian</option>
-              <option value="fish">Fish</option>
-              <option value="insect">Insect</option>
-              <option value="mollusk">Mollusk</option>
-              <option value="crustacean">Crustacean</option>
-              <option value="arachnid">Arachnid</option>
-              <option value="worm">Worm</option>
-              <option value="jellyfish">Jellyfish</option>
-              <option value="unknown">Unknown</option>
-            </select>
-          </div>
-          <div>
-            <label for="species">Species: </label>
-            <input
-              type="text"
-              name="species"
-              placeholder="If unknown, add description"
-              id="species"
-            />
-          </div>
-          <div id="info">
-            <label for="info">Description: </label>
-            <textarea
-              type="text"
-              name="info"
-              placeholder="features, behaviour, time etc"
-              maxlength="1500"
-              id="description"
-            ></textarea>
-            <!-- <button type="submit">Post</button> -->
-          </div>
-          <button type="submit">Post</button>
+    <main role="main">
+      <section id="home">
+        <div id="textBox">
+          <h1>Creature Feature</h1>
+          <h2>What will you discover today?</h2>
         </div>
-      </form>
-      <div id="postCreated" hidden>
-        <h3>Your post has been made!</h3>
-        <a href="feed">See your post</a>
-        <a href="createPost-form" id="createAnother">New post</a>
-      </div>
-    </section>
+      </section>
 
-    <section id="feed"></section>
+      <section id="create-post">
+        <form id="createPost-form">
+          <h2 id="post-title">Create post</h2>
+          <div id="form-grid">
+            <div>
+              <label for="name" class="names">Name: </label>
+              <input
+                type="text"
+                name="name"
+                class="names"
+                placeholder="name/alias"
+              />
+            </div>
+            <div>
+              <label for="location" class="locations">Location: </label>
+              <input
+                type="text"
+                name="location"
+                required
+                placeholder="county or more specific"
+                class="location"
+              />
+            </div>
+            <div>
+              <label for="date" class="dates">Date: </label>
+              <input
+                aria-label="date"
+                type="date"
+                class="date"
+                name="date"
+                min="2024-12"
+                id="datePickerId"
+                required
+              />
+            </div>
+            <div>
+              <label for="type">Type: </label>
+              <select name="type" aria-label="type" required>
+                <option aria-label="type" value="" selected disabled>
+                  Please select a type
+                </option>
+                <option aria-label="type" value="Mammal">Mammal</option>
+                <option aria-label="type" value="Bird">Bird</option>
+                <option aria-label="type" value="Reptile">Reptile</option>
+                <option aria-label="type" value="Amphibian">Amphibian</option>
+                <option aria-label="type" value="Fish">Fish</option>
+                <option aria-label="type" value="Insect">Insect</option>
+                <option aria-label="type" value="Mollusk">Mollusk</option>
+                <option aria-label="type" value="Crustacean">Crustacean</option>
+                <option aria-label="type" value="Arachnid">Arachnid</option>
+                <option aria-label="type" value="Worm">Worm</option>
+                <option aria-label="type" value="Jellyfish">Jellyfish</option>
+                <option aria-label="type" value="Unknown">Unknown</option>
+              </select>
+            </div>
+            <div id="speciesDiv">
+              <label for="species">Species: </label>
+              <input
+                type="text"
+                name="species"
+                placeholder="If unknown, add description"
+                id="species"
+              />
+            </div>
+            <div id="info">
+              <label for="info">Description: </label>
+              <textarea
+                type="text"
+                name="info"
+                placeholder="features, behaviour, time etc"
+                maxlength="1500"
+                id="description"
+              ></textarea>
+              <!-- <button type="submit">Post</button> -->
+            </div>
+            <button type="submit">Post</button>
+          </div>
+        </form>
+        <div id="postCreated" hidden>
+          <h3>Your post has been made!</h3>
+          <a href="#feed" id="feedScroll">See your post</a>
+          <button id="createAnother">Create a new post</button>
+        </div>
+      </section>
+
+      <section id="feed"></section>
+    </main>
   </body>
 </html>
