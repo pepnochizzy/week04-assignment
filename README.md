@@ -52,6 +52,12 @@ but it started to feel like it would be very repetitive, making p elements and d
 
 - Like button, I knew to do this (without tracking, purely client visuals) it could be as simple as swapping the source. I made it go from unsolid heart to a solid heart BUT I struggled to swap it back again with my if statement.
 
+# What went well
+
+- I am very pleased with my increasing confidence with CSS
+- I found the dom manipulation pretty straightforward this time around, I was able to simplify code I had previously used too which I think shows my improving understanding.
+- I found SQL/queries went well and did not require much tweaking.
+
 # Resources
 
 - https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today - used for setting max date in form.
