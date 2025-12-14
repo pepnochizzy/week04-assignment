@@ -44,12 +44,10 @@ async function handleSubmit(event) {
   form.hidden = true;
   createdDiv.hidden = false;
   getPostData();
-  // window.location.reload(); //so we can see the new post- is there a better way?
 }
 
 form.addEventListener("submit", handleSubmit);
 
-//! Once you finish your project, replace your localhost url with the deployed server url from render!!!!!
 //============================================
 
 //TODO: render the users' data on the interface
@@ -59,7 +57,7 @@ async function getPostData() {
     "https://guestbook-server-3all.onrender.com/get-post"
   );
   const postData = await response.json();
-  console.log(postData); //TODO: Remove once completed project
+  // console.log(postData); //TODO: Remove once completed project
   renderPost(postData);
 }
 
