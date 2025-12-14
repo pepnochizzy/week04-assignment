@@ -21,20 +21,22 @@ form.addEventListener("change", descriptionRequired);
 
 //TODO: collect users' data and send to server
 // submit event to collect data
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   const formDataTemp = new FormData(form);
   const formValues = Object.fromEntries(formDataTemp);
   console.log(formValues);
   //fetch the POST server route
 
-  fetch("http://localhost:8080/create-post", {
+  await fetch("http://localhost:8080/create-post", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ formValues }),
   });
+  getPostData();
+  window.location.reload(); //so we can see the new post- is there a better way?
 }
 
 form.addEventListener("submit", handleSubmit);
@@ -50,7 +52,7 @@ async function getPostData() {
   console.log(postData); //TODO: Remove once completed project
   renderPost(postData);
 }
-getPostData();
+getPostData(); //TODO make this on init!!!
 
 //I am making lots of p tags and it felt repetitive:
 function createPtag(text, i) {
@@ -72,7 +74,10 @@ async function renderPost(postData) {
     const infoP = createPtag(postData[i].info, "info");
     const feed = document.getElementById("feed");
     const postContainer = document.createElement("div");
+    postContainer.className = "posts";
     feed.appendChild(postContainer);
     postContainer.append(nameP, locationP, date, typeP, speciesP, infoP);
   }
 }
+
+//show on submit and remove form

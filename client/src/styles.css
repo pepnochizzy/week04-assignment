@@ -110,6 +110,7 @@ a:hover {
   justify-content: center;
   border: solid 1px rgb(38, 64, 39);
   border-radius: 12px;
+  margin-bottom: 10vh;
 }
 
 #createPost-form {
@@ -148,6 +149,11 @@ button {
 
 textarea {
   height: 5rem;
+  max-width: 20rem;
+}
+
+#info label {
+  display: block;
 }
 
 ::placeholder {
@@ -175,11 +181,44 @@ button:hover {
   box-shadow: 0 0 8px rgb(179, 138, 88), 0 0 20px rgba(179, 138, 88, 0.6);
 }
 
-.name {
+@media (min-width: 800px) {
+  textarea {
+    max-width: 40rem;
+  }
 }
 
-.location {
+select,
+::picker(select) {
+  appearance: base-select;
 }
 
-.date {
+select::picker-icon {
+  color: rgb(179, 138, 88);
+  transition: 0.3s rotate;
+}
+
+select:open::picker-icon {
+  rotate: 180deg;
+}
+
+#feed {
+  display: grid;
+  grid-template-columns: 30vw 30vw;
+  grid-row: auto;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.posts {
+  background-color: rgba(179, 138, 88, 0.4);
+  border-radius: 12px;
+  padding: 1rem;
+  color: rgb(179, 138, 88);
+  font-size: var(--fs-500);
+}
+
+@media (min-width: 800px) {
+  #feed {
+    grid-template-columns: 25vw 25vw 25vw;
+  }
 }
